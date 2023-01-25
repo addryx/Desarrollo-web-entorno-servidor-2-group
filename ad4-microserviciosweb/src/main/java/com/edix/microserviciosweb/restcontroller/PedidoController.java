@@ -21,7 +21,7 @@ public class PedidoController {
 	private IntPedidoServices pedservices;
 	
 	@GetMapping("/{id}")
-	public List<Pedido> verPorComercial(@PathVariable ("id") int idComercial) {
+	public List<Pedido> verPorComercial(Pedido pedido, @PathVariable ("id") int idComercial) {
 		return pedservices.findByComercial(idComercial);
 	}
 
