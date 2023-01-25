@@ -26,7 +26,7 @@ public class PedidoServicesImpl implements IntPedidoServices{
 	
 	@Override
 	public List<Pedido> findByComercial(int idComercial) {
-		return prepo.findByComercial(idComercial);
+		return prepo.pedidosDeComercial(idComercial);
 	}
 
 }
