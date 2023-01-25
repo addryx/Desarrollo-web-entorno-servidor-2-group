@@ -18,11 +18,23 @@ import com.edix.microserviciosweb.modelo.services.IntPedidoServices;
 public class PedidoController {
 	
 	@Autowired
-	private IntPedidoServices pedservices;
+	private IntPedidoServices pservices;
 	
 	@GetMapping("/{id}")
-	public List<Pedido> verPorComercial(Pedido pedido, @PathVariable ("id") int idComercial) {
-		return pedservices.findByComercial(idComercial);
+	public List<Pedido> verPorComercial(@PathVariable ("id") int idComercial) {
+		try {
+            return this.pservices.pedidosDeComercial( idComercial );
+        } catch ( Exception e ){
+            e.printStackTrace();
+            return null;
+        }
 	}
+	
+	/*
+	@GetMapping( "/{id}" )
+    public List<Pedido> pedidos( @PathVariable( "id" ) int idComercial ) {
+        return this.pservices.pedidosDeComercial( idComercial );
+    }
+    */
 
 }

@@ -9,8 +9,8 @@ import com.edix.microserviciosweb.modelo.beans.Comercial;
 import com.edix.microserviciosweb.repository.ComercialRepository;
 
 @Service
-public class ComercialServicesImpl implements IntComercialServices{
-	
+public class ComercialServicesImpl implements IntComercialServices {
+
 	@Autowired
 	private ComercialRepository crepo;
 
@@ -26,7 +26,7 @@ public class ComercialServicesImpl implements IntComercialServices{
 
 	@Override
 	public int altaComercial(Comercial comercial) {
-		if(!crepo.existsById(comercial.getIdComercial())) {
+		if (!crepo.existsById(comercial.getIdComercial())) {
 			crepo.save(comercial);
 			return 1;
 		}
@@ -39,19 +39,40 @@ public class ComercialServicesImpl implements IntComercialServices{
 		try {
 			crepo.deleteById(idComercial);
 			filas = 1;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return filas;
 	}
 
 	@Override
-	public String verComercial(Comercial comercial) {
-		if(crepo.existsById(comercial.getIdComercial())) {
-			return comercial.toString();
-		}
-		return "Éste comercial no existe.";
+	public Comercial verComercial(Comercial comercial) {
+		return comercial;
 	}
 
+	@Override
+	public List<Comercial> listaComercialesCliente(int idCliente) {
+		
+		try {
+            return this.crepo.listaComercialesCliente(idCliente);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return null;
+        }
+	}
+	
+	@Override
+    public List<Comercial> comercialesConPedidos() {
+
+        try {
+            return this.crepo.comercialesConPedidos();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+	
 }
+
+
+

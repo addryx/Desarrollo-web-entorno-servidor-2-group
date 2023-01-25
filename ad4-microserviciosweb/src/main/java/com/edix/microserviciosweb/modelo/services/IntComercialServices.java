@@ -10,6 +10,8 @@ public interface IntComercialServices {
 	Comercial findById(int idComercial);
 	int altaComercial(Comercial comercial);
 	int eliminarComercial(int idComercial);
-	String verComercial(Comercial comercial);
+	Comercial verComercial(Comercial comercial);
+	List<Comercial> listaComercialesCliente(int idCliente);
+	List<Comercial> comercialesConPedidos();
 
 }

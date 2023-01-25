@@ -29,4 +29,16 @@ public class PedidoServicesImpl implements IntPedidoServices{
 		return prepo.pedidosDeComercial(idComercial);
 	}
 
-}
+	@Override
+	public List<Pedido> pedidosDeComercial(int idComercial) {
+		try {
+            return this.prepo.pedidosDeComercial( idComercial );
+        } catch ( Exception e ){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+	}
+
+
