@@ -24,6 +24,7 @@ public class ComercialServicesImpl implements IntComercialServices {
 		return crepo.findAll();
 	}
 
+	
 	//Con este método hacemos una búsqueda del comercial por su idComercial
 	@Override
 	public Comercial findById(int idComercial) {
@@ -32,25 +33,29 @@ public class ComercialServicesImpl implements IntComercialServices {
 
 	//Con este método damos de alta un comercial 
 	@Override
-	public int altaComercial(Comercial comercial) {
-		if (!crepo.existsById(comercial.getIdComercial())) {
-			crepo.save(comercial);
-			return 1;
-		}
-		return 0;
+	public Comercial altaComercial(Comercial comercial) {
+		if (findById(comercial.getIdComercial()) == null)
+			return crepo.save(comercial);
+		return null;
+	}
+	
+	@Override
+	public Comercial modificarComercial(Comercial comercial) {
+		if (findById(comercial.getIdComercial()) != null)
+			return crepo.save(comercial);
+		return null;
 	}
 
 	//con este método eliminamos un comercial por su idComercial
 	@Override
-	public int eliminarComercial(int idComercial) {
-		int filas = 0;
-		try {
+	public boolean eliminarComercial(int idComercial) {
+		
+		if (findById(idComercial) != null) {
 			crepo.deleteById(idComercial);
-			filas = 1;
-		} catch (Exception e) {
-			e.printStackTrace();
+		return true;
+		} else {
+			return false;
 		}
-		return filas;
 	}
 	
 	//Con este método hacemos una búsqueda del comercial directamente introducciendo el objeto

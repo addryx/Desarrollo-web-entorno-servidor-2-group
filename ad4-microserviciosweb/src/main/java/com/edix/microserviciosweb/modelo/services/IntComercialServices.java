@@ -13,10 +13,12 @@ public interface IntComercialServices {
 	Comercial findById(int idComercial);
 	
 	//Creamos un método para dar de alta un comercial
-	int altaComercial(Comercial comercial);
+	Comercial altaComercial(Comercial comercial);
+	
+	Comercial modificarComercial(Comercial comercial);
 	
 	//Creamos un método para eliminar un comercial por su id
-	int eliminarComercial(int idComercial);
+	boolean eliminarComercial(int idComercial);
 	
 	//Creamos un método para ver todos los datos de un Comercial
 	Comercial verComercial(Comercial comercial);

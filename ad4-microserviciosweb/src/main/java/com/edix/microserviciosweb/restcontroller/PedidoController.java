@@ -20,6 +20,7 @@ public class PedidoController {
 	@Autowired
 	private IntPedidoServices pservices;
 	
+	// FALTA MIRAR SI ESTA OK
 	@GetMapping("/{id}")
 	public List<Pedido> verPorComercial(@PathVariable ("id") int idComercial) {
 		try {
