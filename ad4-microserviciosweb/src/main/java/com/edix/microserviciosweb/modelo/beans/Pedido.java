@@ -38,6 +38,15 @@ public class Pedido implements Serializable {
 	@JoinColumn(name="ID_COMERCIAL")
 	private Comercial idComercial;
 	
+	public Pedido(int idPedido, double total, Date fecha, Cliente idCliente, Comercial idComercial) {
+		super();
+		this.idPedido = idPedido;
+		this.total = total;
+		this.fecha = fecha;
+		this.idCliente = idCliente;
+		this.idComercial = idComercial;
+	}
+
 	public Pedido() {
 		super();
 	}

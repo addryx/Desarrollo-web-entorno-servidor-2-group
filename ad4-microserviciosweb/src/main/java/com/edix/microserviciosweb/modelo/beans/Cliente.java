@@ -25,7 +25,17 @@ public class Cliente implements Serializable {
 	private String apellido2;
 	private String ciudad;
 	private int categoria;
-	
+		
+	public Cliente(int idCliente, String nombre, String apellido1, String apellido2, String ciudad, int categoria) {
+		super();
+		this.idCliente = idCliente;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.ciudad = ciudad;
+		this.categoria = categoria;
+	}
+
 	public Cliente() {
 		super();
 	}

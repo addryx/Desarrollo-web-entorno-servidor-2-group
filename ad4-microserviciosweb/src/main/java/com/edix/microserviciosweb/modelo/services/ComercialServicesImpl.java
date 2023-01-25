@@ -34,12 +34,16 @@ public class ComercialServicesImpl implements IntComercialServices{
 	}
 
 	@Override
-	public int eliminarComercial(Comercial comercial) {
-		if(!crepo.existsById(comercial.getIdComercial())) {
-			crepo.delete(comercial);
-			return 1;
+	public int eliminarComercial(int idComercial) {
+		int filas = 0;
+		try {
+			crepo.deleteById(idComercial);
+			filas = 1;
 		}
-		return 0;
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return filas;
 	}
 
 	@Override
@@ -47,7 +51,7 @@ public class ComercialServicesImpl implements IntComercialServices{
 		if(crepo.existsById(comercial.getIdComercial())) {
 			return comercial.toString();
 		}
-		return "Éste comercial no exíste.";
+		return "Éste comercial no existe.";
 	}
 
 }

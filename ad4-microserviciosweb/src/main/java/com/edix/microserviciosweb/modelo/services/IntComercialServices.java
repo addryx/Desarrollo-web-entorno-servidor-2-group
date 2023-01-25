@@ -9,7 +9,7 @@ public interface IntComercialServices {
 	List<Comercial> findAll();
 	Comercial findById(int idComercial);
 	int altaComercial(Comercial comercial);
-	int eliminarComercial(Comercial comercial);
+	int eliminarComercial(int idComercial);
 	String verComercial(Comercial comercial);
 
 }

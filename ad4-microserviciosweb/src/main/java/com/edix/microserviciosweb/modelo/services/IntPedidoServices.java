@@ -8,5 +8,6 @@ public interface IntPedidoServices {
 
 	List<Pedido> findAll();
 	Pedido findById(int idPedido);
+	public List<Pedido> findByComercial(int idComercial);
 	
 }

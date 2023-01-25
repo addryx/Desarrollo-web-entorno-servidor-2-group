@@ -25,6 +25,15 @@ public class Comercial implements Serializable {
 	private String apellido2;
 	private double comision;
 	
+	public Comercial(int idComercial, String nombre, String apellido1, String apellido2, double comision) {
+		super();
+		this.idComercial = idComercial;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.comision = comision;
+	}
+
 	public Comercial() {
 		super();
 	}
