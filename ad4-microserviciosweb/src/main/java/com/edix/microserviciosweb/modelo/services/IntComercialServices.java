@@ -2,7 +2,7 @@ package com.edix.microserviciosweb.modelo.services;
 
 import java.util.List;
 
-import com.edix.microserviciosweb.modelo.beans.Comercial;
+import com.edix.microserviciosweb.modelo.entities.Comercial;
 
 public interface IntComercialServices {
 

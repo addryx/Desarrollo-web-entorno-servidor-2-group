@@ -1,4 +1,4 @@
-package com.edix.microserviciosweb.modelo.beans;
+package com.edix.microserviciosweb.modelo.entities;
 
 import java.io.Serializable;
 import java.util.Date;

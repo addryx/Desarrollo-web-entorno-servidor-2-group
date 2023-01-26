@@ -2,7 +2,7 @@ package com.edix.microserviciosweb.modelo.services;
 
 import java.util.List;
 
-import com.edix.microserviciosweb.modelo.beans.Pedido;
+import com.edix.microserviciosweb.modelo.entities.Pedido;
 
 public interface IntPedidoServices {
 

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edix.microserviciosweb.modelo.beans.Comercial;
+import com.edix.microserviciosweb.modelo.entities.Comercial;
 import com.edix.microserviciosweb.repository.ComercialRepository;
 
 
@@ -34,15 +34,17 @@ public class ComercialServicesImpl implements IntComercialServices {
 	//Con este método damos de alta un comercial 
 	@Override
 	public Comercial altaComercial(Comercial comercial) {
-		if (findById(comercial.getIdComercial()) == null)
+		if (findById(comercial.getIdComercial()) == null) {
 			return crepo.save(comercial);
+		}
 		return null;
 	}
 	
 	@Override
 	public Comercial modificarComercial(Comercial comercial) {
-		if (findById(comercial.getIdComercial()) != null)
+		if (findById(comercial.getIdComercial()) != null) {
 			return crepo.save(comercial);
+		}
 		return null;
 	}
 
@@ -52,7 +54,7 @@ public class ComercialServicesImpl implements IntComercialServices {
 		
 		if (findById(idComercial) != null) {
 			crepo.deleteById(idComercial);
-		return true;
+			return true;
 		} else {
 			return false;
 		}
