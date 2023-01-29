@@ -44,7 +44,7 @@ public class ComercialController {
 	
 	/**
 	 * Como es una modificación, hay que poner @PutMapping. 
-	 * 
+	 * Esté método nos permite modificar un comercial.
 	 * @param comercial
 	 * @return
 	 */
@@ -68,24 +68,33 @@ public class ComercialController {
 			return "¡ERROR! El comercial introducido no existe";
 	}
 	
-	
+	/**
+	 * Lós métodos get nos devuelven siempre un valor. 
+	 * En este caso este método nos devuelve el comercial que coincida con el idComercial que hemos introducido por parámetro.
+	 * @param model
+	 * @param idComercial
+	 * @return
+	 */
 	@GetMapping("/uno/{id}")
 	public Comercial visualizarComercial(Model model, @PathVariable("id") int idComercial) {
 		return cservices.findById(idComercial);
 	}
 	
+	/**
+	 * Método Get nos devuelve un listado de pedidos gestionados por el comercial que coincidea con el id introducido por parámetros.
+	 * @param idCliente
+	 * @return
+	 */
 	@GetMapping( "/byCliente/{id}" )
     public List<Comercial> porComercial( @PathVariable( "id" ) int idCliente ) {
         return cservices.listaComercialesCliente(idCliente);
     }
 	
-	
-	// FALTA MIRAR SI ESTA OK
+	/*
+	 * Método Get que nos devuelve un listado de comerciales que hayan tenido algún pedido.
+	 */
 	@GetMapping( "/conPedidos" )
     public List<Comercial> conPedidos() {
         return this.cservices.comercialesConPedidos();
     }
-	
-
-	
 }
