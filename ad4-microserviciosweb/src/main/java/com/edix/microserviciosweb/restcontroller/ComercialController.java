@@ -63,9 +63,9 @@ public class ComercialController {
 	@DeleteMapping("/eliminar/{id}")
 	public String darBajaComercial(@RequestBody Comercial comercial, @PathVariable("id") int idComercial) {
 		if (cservices.eliminarComercial(idComercial))
-			return "Familia eliminada";
+			return "Comercial eliminado correctamente.";
 		else
-			return "Familia no existe";
+			return "¡ERROR! El comercial introducido no existe";
 	}
 	
 	
