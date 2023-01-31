@@ -32,19 +32,19 @@ public class Pedido implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="ID_CLIENTE")
-	private Cliente idCliente;
+	private Cliente cliente;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_COMERCIAL")
-	private Comercial idComercial;
+	private Comercial comercial;
 	
-	public Pedido(int idPedido, double total, Date fecha, Cliente idCliente, Comercial idComercial) {
+	public Pedido(int idPedido, double total, Date fecha, Cliente cliente, Comercial comercial) {
 		super();
 		this.idPedido = idPedido;
 		this.total = total;
 		this.fecha = fecha;
-		this.idCliente = idCliente;
-		this.idComercial = idComercial;
+		this.cliente = cliente;
+		this.comercial = comercial;
 	}
 
 	public Pedido() {
@@ -76,25 +76,25 @@ public class Pedido implements Serializable {
 	}
 
 	public Cliente getIdCliente() {
-		return idCliente;
+		return cliente;
 	}
 
 	public void setIdCliente(Cliente idCliente) {
-		this.idCliente = idCliente;
+		this.cliente = idCliente;
 	}
 
 	public Comercial getIdComercial() {
-		return idComercial;
+		return comercial;
 	}
 
 	public void setIdComercial(Comercial idComercial) {
-		this.idComercial = idComercial;
+		this.comercial = idComercial;
 	}
 
 	@Override
 	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", total=" + total + ", fecha=" + fecha + ", idCliente=" + idCliente
-				+ ", idComercial=" + idComercial + "]";
+		return "Pedido [idPedido=" + idPedido + ", total=" + total + ", fecha=" + fecha + ", idCliente=" + cliente
+				+ ", idComercial=" + comercial + "]";
 	}
 
 	@Override

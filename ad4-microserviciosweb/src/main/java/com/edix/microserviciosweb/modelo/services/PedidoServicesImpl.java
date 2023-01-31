@@ -9,8 +9,8 @@ import com.edix.microserviciosweb.modelo.entities.Pedido;
 import com.edix.microserviciosweb.repository.PedidoRepository;
 
 @Service
-public class PedidoServicesImpl implements IntPedidoServices{
-	
+public class PedidoServicesImpl implements IntPedidoServices {
+
 	@Autowired
 	private PedidoRepository prepo;
 
@@ -23,7 +23,7 @@ public class PedidoServicesImpl implements IntPedidoServices{
 	public Pedido findById(int idPedido) {
 		return prepo.findById(idPedido).orElse(null);
 	}
-	
+
 	@Override
 	public List<Pedido> findByComercial(int idComercial) {
 		return prepo.pedidosDeComercial(idComercial);
@@ -32,13 +32,11 @@ public class PedidoServicesImpl implements IntPedidoServices{
 	@Override
 	public List<Pedido> pedidosDeComercial(int idComercial) {
 		try {
-            return this.prepo.pedidosDeComercial( idComercial );
-        } catch ( Exception e ){
-            e.printStackTrace();
-            return null;
-        }
+			return this.prepo.pedidosDeComercial(idComercial);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
-    }
 	}
-
-
+}
